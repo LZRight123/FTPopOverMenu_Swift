@@ -39,10 +39,6 @@ public class FTConfiguration: NSObject {
             FT.DefaultCellMargin = defaultCellMargin
         }
     }
-    
-    deinit {
-        FT.DefaultCellMargin = 6
-    }
-    
+
 }
 
