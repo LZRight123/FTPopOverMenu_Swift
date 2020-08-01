@@ -8,9 +8,10 @@
 
 import UIKit
 
-class FTPopOverMenuCell: UITableViewCell {
+public class FTPopOverMenuCell: UITableViewCell {
+    public static var configCellBlock: ((FTPopOverMenuCell) -> Void)?
 
-    fileprivate lazy var iconImageView : UIImageView = {
+    public lazy var iconImageView : UIImageView = {
         let imageView = UIImageView(frame: CGRect.zero)
         imageView.backgroundColor = UIColor.clear
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
@@ -18,7 +19,7 @@ class FTPopOverMenuCell: UITableViewCell {
         return imageView
     }()
 
-    fileprivate lazy var nameLabel : UILabel = {
+    public lazy var nameLabel : UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.backgroundColor = UIColor.clear
         self.contentView.addSubview(label)
@@ -26,6 +27,7 @@ class FTPopOverMenuCell: UITableViewCell {
     }()
 
     func setupCellWith(menuName: FTMenuObject, menuImage: Imageable?, configuration: FTConfiguration) {
+        FTPopOverMenuCell.configCellBlock?(self)
         self.backgroundColor = UIColor.clear
         
         // Configure cell text
