@@ -33,5 +33,16 @@ public class FTConfiguration: NSObject {
     public var selectedTextColor : UIColor = UIColor.darkText
     public var selectedCellBackgroundColor : UIColor = UIColor.red
     
+    /// 用完后记得设置回来
+    public var defaultCellMargin: CGFloat = 6 {
+        didSet {
+            FT.DefaultCellMargin = defaultCellMargin
+        }
+    }
+    
+    deinit {
+        FT.DefaultCellMargin = 6
+    }
+    
 }
 
